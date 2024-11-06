@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { Header } from "./components/Header/Header";
+import { Offers } from "./components/Offers/Offers";
+import { Search } from "./components/Search/Search";
 
-import "./App.css";
 
 function App() {
+
   return (
     <div>
-      <div>
-        <h1>Job Listings</h1>
-      </div>
+      <Header />
+      <Offers />
+      <Search />
     </div>
   );
 }

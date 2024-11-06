@@ -28,6 +28,12 @@ body {
   max-width: 1440px;
 }
 
+.section-header img {
+  width: 100%;
+  height: auto;
+  background-color: var(--primary-color);
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     max-width: 375px;
