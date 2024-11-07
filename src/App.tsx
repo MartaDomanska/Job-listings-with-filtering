@@ -1,16 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "./components/Header/Header";
-import { Offers } from "./components/Offers/Offers";
+import { JobOffers } from "./components/JobOffers/JobOffers";
 import { Search } from "./components/Search/Search";
 
-
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data.json");
+        const jsonData = await response.json();
+        console.log(jsonData); 
+        setData(jsonData);
+      } catch (error) {
+        console.log(error, "error"); 
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div>
       <Header />
-      <Offers />
       <Search />
+      <JobOffers data={data}/>
     </div>
   );
 }

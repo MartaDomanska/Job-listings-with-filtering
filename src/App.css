@@ -34,6 +34,19 @@ body {
   background-color: var(--primary-color);
 }
 
+.section-job-offers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.job-offers-container {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin: 20px 0;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     max-width: 375px;
