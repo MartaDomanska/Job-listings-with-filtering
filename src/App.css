@@ -18,7 +18,7 @@
 
 body {
   font-family: "League Spartan", sans-serif;
-  background-color: var(--light-color);
+  background-color: var(--light-neutral-color);
   color: var(--strong-dark-gray);
   font-size: 15px;
   font-weight: 500;
@@ -40,11 +40,81 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .job-offers-container {
+  background-color: var(--light-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px 4px rgba(91, 164, 164, 0.2);
+  padding: 20px 15px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 70%;
   margin: 20px 0;
+}
+
+.job-offers-content {
+  display: flex;
+  align-items: center;
+}
+
+.job-offers-details, .job-offers-details p {
+  margin-top: 10px;
+}
+
+.job-offers-details p {
+  color: var(--dark-gray);
+}
+
+.job-offers-logo {
+  margin-right: 50px;
+}
+
+.job-offers-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.job-offers-company {
+  display: flex;
+  align-items: center;
+}
+
+.job-offers-company h2 {
+  color: var(--primary-color);
+}
+
+.job-offers-company h2, .job-offers-company span {
+  font-size: 15px;
+}
+
+.job-offers-company span {
+  margin-left: 30px;
+  color: var(--light-color);
+  border-radius: 5px;
+  padding: 5px;
+  border-radius: 45px;
+}
+
+.job-offers-company span:nth-of-type(1) {
+  background-color: var(--primary-color);
+}
+
+.job-offers-company span:nth-of-type(2) {
+  background-color: var(--strong-dark-gray);
+}
+
+.job-offers-tools button {
+  margin-right: 20px;
+}
+
+.job-offers-tools button {
+  border: none;
+  background-color: var(--light-neutral-color);
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 19px;
 }
 
 @media only screen and (max-width: 600px) {

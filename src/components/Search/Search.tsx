@@ -1,7 +1,3 @@
 export const Search = () => {
-    return (
-        <div>
-            Search jobs
-        </div>
-    )
-}
+  return <div className="search-container"></div>;
+};
