@@ -1,26 +1,11 @@
 import { useState, useEffect } from "react";
 import { Header } from "./components/Header/Header";
 import { JobOffers } from "./components/JobOffers/JobOffers";
-import { Search } from "./components/Search/Search";
+import { Filter } from "./components/Filter/Filter";
 
-export interface JobOffersData {
-  id: number;
-  logo: string;
-  company: string;
-  new: boolean;
-  featured: boolean;
-  position: string;
-  postedAt: string;
-  contract: string;
-  location: string;
-  role: string;
-  level: string;
-  languages: string[];
-  tools: string[];
-}
 
 function App() {
-  const [data, setData] = useState<JobOffersData[]>([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,10 +24,11 @@ function App() {
     
   };
 
+  
   return (
     <div>
       <Header />
-      <Search />
+      <Filter keywords={[]} removeKeywords={() => {} } clearAll={() => {} } />
       <JobOffers data={data} onClick={handleClick} />
     </div>
   );

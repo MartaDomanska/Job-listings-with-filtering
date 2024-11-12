@@ -1,4 +1,4 @@
-export interface JobOffersData {
+export interface Props {
   id: number;
   logo: string;
   company: string;
@@ -18,8 +18,8 @@ export const JobOffers = ({
   data,
   onClick,
 }: {
-  data: JobOffersData[];
-  onClick: (dataItem: JobOffersData) => void;
+  data: Props[];
+  onClick: (dataItem: Props) => void;
 }) => {
   return (
     <div className="section-job-offers container">
@@ -45,12 +45,11 @@ export const JobOffers = ({
             </div>
           </div>
           <div className="job-offers-tools">
-            <button onClick={() => onClick(dataItem)}>{dataItem.role}</button>
-            <button onClick={() => onClick(dataItem)}>{dataItem.level}</button>
-            <button onClick={() => onClick(dataItem)}>
-              {dataItem.languages}
-            </button>
-            <button onClick={() => onClick(dataItem)}>{dataItem.tools}</button>
+            {[dataItem.role, dataItem.level, ...dataItem.languages, ...dataItem.tools].map((key, id) => (
+              <button onClick={() => onClick(dataItem)} key={id}>
+                {key}
+              </button>
+            ))}
           </div>
         </div>
       ))}
