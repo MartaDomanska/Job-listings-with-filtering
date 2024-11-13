@@ -1,4 +1,4 @@
-export interface Props {
+export interface Jobs {
   id: number;
   logo: string;
   company: string;
@@ -15,41 +15,39 @@ export interface Props {
 }
 
 export const JobOffers = ({
-  data,
+  jobs,
   onClick,
 }: {
-  data: Props[];
-  onClick: (dataItem: Props) => void;
+  jobs: Jobs[];
+  onClick: (keyword: string) => void;
 }) => {
   return (
     <div className="section-job-offers container">
-      {data.map((dataItem) => (
-        <div className="job-offers-container" key={dataItem.id}>
+      {jobs.map((job) => (
+        <div className="job-offers-container" key={job.id}>
           <div className="job-offers-content">
             <div className="job-offers-logo">
-              <img src={dataItem.logo} alt={dataItem.company} />
+              <img src={job.logo} alt={job.company} />
             </div>
             <div>
               <div className="job-offers-company">
-                <h2>{dataItem.company}</h2>
-                {dataItem.new && <span>NEW!</span>}
-                {dataItem.featured && <span>FEATURED</span>}
+                <h2>{job.company}</h2>
+                {job.new && <span>NEW!</span>}
+                {job.featured && <span>FEATURED</span>}
               </div>
               <div className="job-offers-details">
-                <h3>{dataItem.position}</h3>
-                <p>
-                  {dataItem.postedAt} • {dataItem.contract} •{" "}
-                  {dataItem.location}
-                </p>
+                <h3>{job.position}</h3>
+                {job.postedAt} • {job.contract} • {job.location}
               </div>
             </div>
           </div>
-          <div className="job-offers-tools">
-            {[dataItem.role, dataItem.level, ...dataItem.languages, ...dataItem.tools].map((key, id) => (
-              <button onClick={() => onClick(dataItem)} key={id}>
-                {key}
-              </button>
-            ))}
+          <div className="job-offers-filters">
+            <button onClick={() => onClick(job.role)}>
+              <span>{job.role}</span>
+              <span>{job.level}</span>
+              <span>{job.languages.join(", ")}</span>
+              <span>{job.tools.join(", ")}</span>
+            </button>
           </div>
         </div>
       ))}
