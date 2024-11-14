@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import { Header } from "./components/Header/Header";
-import { JobOffers, Jobs } from "./components/JobOffers/JobOffers";
+import { JobOffers, Job } from "./components/JobOffers/JobOffers";
 import { Filter } from "./components/Filter/Filter";
 
-
 function App() {
-  const [jobs, setJobs] = useState<Jobs[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
+
+  const filteredJobs = jobs.filter((job) => {
+    const categories = [job.role, job.level, ...job.languages, ...job.tools];
+    return filterKeywords.every((filter) => categories.includes(filter));
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,9 +25,9 @@ function App() {
     fetchData();
   }, []);
 
-  const addFilters = (data: string) => {
-    if (!filterKeywords.includes(data)) {
-      setFilterKeywords([...filterKeywords, data]);
+  const addFilters = (key: string) => {
+    if (!filterKeywords.includes(key)) {
+      setFilterKeywords([...filterKeywords, key]);
     }
   };
 
@@ -42,9 +46,8 @@ function App() {
         keywords={filterKeywords}
         removeKeywords={removeKeywords}
         clearAll={clearAll}
-        addKeywords={addFilters}
       />
-      <JobOffers jobs={jobs} onClick={addFilters} />
+      <JobOffers jobs={filteredJobs} onClick={addFilters} />
     </div>
   );
 }

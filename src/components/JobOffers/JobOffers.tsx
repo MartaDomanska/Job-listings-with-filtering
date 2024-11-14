@@ -1,4 +1,4 @@
-export interface Jobs {
+export interface Job {
   id: number;
   logo: string;
   company: string;
@@ -14,15 +14,14 @@ export interface Jobs {
   tools: string[];
 }
 
-export const JobOffers = ({
-  jobs,
-  onClick,
-}: {
-  jobs: Jobs[];
+interface Props {
+  jobs: Job[];
   onClick: (keyword: string) => void;
-}) => {
+}
+
+export const JobOffers = ({ jobs, onClick }: Props) => {
   return (
-    <div className="section-job-offers container">
+    <div className="section-job-offers">
       {jobs.map((job) => (
         <div className="job-offers-container" key={job.id}>
           <div className="job-offers-content">
@@ -37,17 +36,20 @@ export const JobOffers = ({
               </div>
               <div className="job-offers-details">
                 <h3>{job.position}</h3>
-                {job.postedAt} • {job.contract} • {job.location}
+                <span>
+                  {job.postedAt} • {job.contract} • {job.location}
+                </span>
               </div>
             </div>
           </div>
           <div className="job-offers-filters">
-            <button onClick={() => onClick(job.role)}>
-              <span>{job.role}</span>
-              <span>{job.level}</span>
-              <span>{job.languages.join(", ")}</span>
-              <span>{job.tools.join(", ")}</span>
-            </button>
+            {[job.role, job.level, ...job.languages, ...job.tools].map(
+              (key, index) => (
+                <button onClick={() => onClick(key)} key={key + index}>
+                  {key}
+                </button>
+              )
+            )}
           </div>
         </div>
       ))}

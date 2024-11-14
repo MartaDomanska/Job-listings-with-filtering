@@ -54,6 +54,11 @@ body {
   margin: 20px 0;
 }
 
+.job-offers-container:nth-of-type(1),
+.job-offers-container:nth-of-type(2) {
+  border-left: 5px solid var(--primary-color);
+}
+
 .job-offers-content {
   display: flex;
   align-items: center;
@@ -62,6 +67,16 @@ body {
 .job-offers-details,
 .job-offers-details p {
   margin-top: 10px;
+}
+
+.job-offers-details {
+  transition: all 0.3s ease-out;
+}
+
+.job-offers-details h3:hover,
+.job-offers-details h3:focus,
+.job-offers-details h3:active {
+  color: var(--primary-color);
 }
 
 .job-offers-details p {
@@ -108,34 +123,49 @@ body {
   background-color: var(--strong-dark-gray);
 }
 
-.job-offers-filters button {
+.job-offers-filters {
   display: flex;
   gap: 10px;
   border: none;
   margin-right: 20px;
 }
 
-.job-offers-filters button span {
+.job-offers-filters button {
   background-color: var(--light-neutral-color);
+  background-color: #effafa;
   color: var(--primary-color);
   font-weight: 700;
   font-size: 19px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3 ease-out;
+}
+
+.job-offers-filters button:hover,
+.job-offers-filters button:focus,
+.job-offers-filters button:active {
+  background-color: var(--primary-color);
+  color: var(--light-color);
 }
 
 .filter-container {
+  position: relative;
   align-items: center;
   background-color: var(--light-color);
   border-radius: 5px;
   box-shadow: 0 4px 6px 4px rgba(91, 164, 164, 0.2);
   display: flex;
-  padding: 1.5rem 2rem;
-  position: relative;
   width: 70%;
+  margin: 0 auto;
+  padding: 20px 15px;
+  margin-top: -50px;
 }
 
 .filter-container ul {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .filter-container ul li {
@@ -156,7 +186,13 @@ body {
   cursor: pointer;
   margin-left: 0.5rem;
   padding: 10px;
-  transition: all 0.2s;
+  transition: all 0.2s ease-out;
+}
+
+.close:hover,
+.close:focus,
+.close:active {
+  background-color: var(--strong-dark-gray);
 }
 
 .clear {
@@ -165,6 +201,15 @@ body {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 700;
+  border: none;
+  transition: all 0.2s ease-out;
+}
+
+.clear:hover,
+.clear:focus,
+.clear:active {
+  text-decoration: underline;
+  transition: all 0.2s ease-out;
 }
 
 @media only screen and (max-width: 600px) {

@@ -1,7 +1,9 @@
+import headerBackground from "../../assets/images/bg-header-desktop.svg"
+
 export const Header = () => {
     return (
         <div className="section-header">
-            <img src="images/bg-header-desktop.svg" alt="Header" />
+            <img src={headerBackground} alt="Header" />
         </div>
     )
 }
