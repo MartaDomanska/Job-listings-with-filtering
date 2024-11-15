@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 export interface Job {
   id: number;
   logo: string;
@@ -15,14 +17,39 @@ export interface Job {
 }
 
 interface Props {
-  jobs: Job[];
+  filterKeywords: string[];
   onClick: (keyword: string) => void;
 }
 
-export const JobOffers = ({ jobs, onClick }: Props) => {
+export const JobOffers = ({ filterKeywords, onClick }: Props) => {
+  const [jobsList, setJobsList] = useState<Job[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data.json");
+        const jsonData = await response.json();
+        setJobsList(jsonData);
+      } catch (error) {
+        console.log(error, "error");
+      }
+    };
+    fetchData();
+  }, []);
+
+  const filteredJobs = jobsList.filter((job) => {
+    const categories = [
+      job.role,
+      job.level,
+      ...job.languages,
+      ...job.tools,
+    ];
+    return filterKeywords.every((filter) => categories.includes(filter));
+  });
+
   return (
     <div className="section-job-offers">
-      {jobs.map((job) => (
+      {filteredJobs.map((job) => (
         <div className="job-offers-container" key={job.id}>
           <div className="job-offers-content">
             <div className="job-offers-logo">
