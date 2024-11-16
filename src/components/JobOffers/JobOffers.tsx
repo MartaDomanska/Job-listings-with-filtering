@@ -48,13 +48,13 @@ export const JobOffers = ({ filterKeywords, onClick }: Props) => {
   });
 
   return (
-    <div className="section-job-offers">
+    <div className="section-job-offers container">
       {filteredJobs.map((job) => (
         <div className="job-offers-container" key={job.id}>
           <div className="job-offers-content">
-            <div className="job-offers-logo">
+            <span className="job-offers-logo">
               <img src={job.logo} alt={job.company} />
-            </div>
+            </span>
             <div>
               <div className="job-offers-company">
                 <h2>{job.company}</h2>

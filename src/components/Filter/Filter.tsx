@@ -8,7 +8,7 @@ interface Props {
 
 export const Filter = ({ keywords, removeKeywords, clearAll }: Props) => {
   return (
-    <div className="">
+    <div className="container">
       {keywords.length > 0 && (
         <div className="filter-container">
           <ul>

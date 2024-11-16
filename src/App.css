@@ -16,6 +16,12 @@
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden !important;
+}
+
 body {
   font-family: "League Spartan", sans-serif;
   background-color: var(--light-neutral-color);
@@ -26,14 +32,19 @@ body {
 
 .container {
   max-width: 1440px;
+  padding: 0 1em;
   margin: 0 auto;
 }
 
+/* HEADER STYLES */
+
 .section-header img {
   width: 100%;
-  height: auto;
+  height: 100px;
   background-color: var(--primary-color);
 }
+
+/* JOB OFFERS STYLES */
 
 .section-job-offers {
   display: flex;
@@ -43,15 +54,15 @@ body {
 }
 
 .job-offers-container {
-  background-color: var(--light-color);
+  background-color: white;
   border-radius: 5px;
   box-shadow: 0 4px 6px 4px rgba(91, 164, 164, 0.2);
-  padding: 20px 15px;
+  padding: 20px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
-  margin: 20px 0;
+  width: 100%;
+  margin: 20px 0 0 0;
 }
 
 .job-offers-container:nth-of-type(1),
@@ -61,7 +72,7 @@ body {
 
 .job-offers-content {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .job-offers-details,
@@ -83,13 +94,19 @@ body {
   color: var(--dark-gray);
 }
 
+.job-offers-details span {
+  color: var(--dark-gray);
+  margin-top: 10px;
+  display: block;
+}
+
 .job-offers-logo {
   margin-right: 50px;
 }
 
 .job-offers-logo img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -125,20 +142,21 @@ body {
 
 .job-offers-filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   border: none;
-  margin-right: 20px;
 }
 
 .job-offers-filters button {
   background-color: var(--light-neutral-color);
-  background-color: #effafa;
+  padding: 10px;
   color: var(--primary-color);
   font-weight: 700;
   font-size: 19px;
   border-radius: 5px;
   border: none;
   transition: all 0.3 ease-out;
+  cursor: pointer;
 }
 
 .job-offers-filters button:hover,
@@ -148,16 +166,18 @@ body {
   color: var(--light-color);
 }
 
+/* FILTER STYLES */
+
 .filter-container {
   position: relative;
   align-items: center;
-  background-color: var(--light-color);
+  background-color: white;
   border-radius: 5px;
   box-shadow: 0 4px 6px 4px rgba(91, 164, 164, 0.2);
   display: flex;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px 15px;
+  padding: 20px 35px;
   margin-top: -50px;
 }
 
@@ -170,7 +190,7 @@ body {
 
 .filter-container ul li {
   align-items: center;
-  background-color: var(----light-neutral-color);
+  background-color: var(--light-neutral-color);
   border-radius: 5px;
   color: var(--primary-color);
   display: flex;
@@ -212,8 +232,81 @@ body {
   transition: all 0.2s ease-out;
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (max-width: 1200px) {
+  .job-offers-company span {
+    margin-left: 10px;
+  }
+
+  .job-offers-company h2,
+  .job-offers-company span,
+  .job-offers-filters button {
+    font-size: 13px;
+  }
+}
+/* STYLES FOR TABLET VIEW */
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 1.5em;
+  }
+
+  .job-offers-container {
+    align-items: normal;
+    flex-direction: column;
+  }
+
+  .job-offers-filters button {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .job-offers-filters {
+    margin-top: 30px 
+  }
+}
+
+/* STYLES FOR MOBILE VIEW */
+
+@media screen and (max-width: 600px) {
   .container {
     max-width: 375px;
+  }
+
+  /* JOB OFFERS STYLES */
+
+  .job-offers-logo {
+    margin-right: 0;
+    margin-top: -3.5em;
+  }
+
+  .job-offers-logo img {
+    height: 65px;
+    width: auto;
+  }
+
+  .job-offers-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: normal;
+    margin: 50px 0 0 0;
+    padding: 20px 15px;
+  }
+
+  .job-offers-content {
+    flex-direction: column;
+  }
+
+  .job-offers-filters {
+    display: flex;
+    gap: 10px;
+    border: none;
+    margin-top: 20px;
+    border-top: 1px solid rgb(183, 196, 196);
+    padding-top: 20px;
+  }
+
+  .job-offers-filters button {
+    font-size: 14px;
   }
 }
