@@ -218,6 +218,7 @@ body {
 .clear {
   display: flex;
   justify-content: flex-end;
+  background-color: transparent;
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 700;
@@ -247,7 +248,7 @@ body {
 
 @media screen and (max-width: 1200px) {
   .container {
-    padding: 0 1.5em;
+    padding: 0 3.5em;
   }
 
   .job-offers-container {
@@ -261,7 +262,12 @@ body {
   }
 
   .job-offers-filters {
-    margin-top: 30px 
+    display: flex;
+    gap: 10px;
+    border: none;
+    margin-top: 10px;
+    border-top: 1px solid rgb(183, 196, 196);
+    padding-top: 20px;
   }
 }
 
@@ -270,6 +276,7 @@ body {
 @media screen and (max-width: 600px) {
   .container {
     max-width: 375px;
+    padding: 0 1.5em;
   }
 
   /* JOB OFFERS STYLES */
@@ -298,15 +305,16 @@ body {
   }
 
   .job-offers-filters {
-    display: flex;
-    gap: 10px;
-    border: none;
     margin-top: 20px;
-    border-top: 1px solid rgb(183, 196, 196);
-    padding-top: 20px;
   }
 
   .job-offers-filters button {
     font-size: 14px;
+  }
+
+  /* FILTER STYLES */
+
+  .filter-container {
+    padding: 15px 15px;
   }
 }
