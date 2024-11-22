@@ -1,4 +1,4 @@
-import iconRemove from "../../assets/images/icon-remove.svg";
+import iconRemove from "/images/icon-remove.svg";
 
 interface Props {
   keywords: string[];

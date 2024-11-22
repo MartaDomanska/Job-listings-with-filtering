@@ -1,4 +1,4 @@
-import headerBackground from "../../assets/images/bg-header-desktop.svg"
+import headerBackground from "/images/bg-header-desktop.svg"
 
 export const Header = () => {
     return (
